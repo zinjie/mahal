@@ -1,143 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Envelope</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #ffe6e6;
-            font-family: "Shadows Into Light", serif;
-            margin: 0;
-            background-image:url(image/BG.jpg);
-        }
-        .container {
-            text-align: center;
-        }
-        .envelope {
-            position: relative;
-            width: 500px;
-            height: 300px;
-            background-color: #ff7f7f;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            overflow: hidden;
-        }
-        .flap {
-            position: absolute;
-            top: 0;
-            width: 0;
-            height: 0;
-            border-left: 550px solid transparent;
-            border-right: 550px solid transparent;
-            border-bottom: 100px solid #d9534f;
-            margin-top: -100px;
-            rotate: 180deg;
-            transform-origin: bottom;
-            transition: transform 0.20s;
-        }
-        .card {
-            position: absolute;
-            margin: -40px;
-            bottom: 0;
-            width: 90%;
-            height: 255px;
-            background-color: white;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content:unsafe;
-            transform: translateY(100%);
-            transition: transform 0.5s;
-            padding: 10px;
-            /* font-size: 15px;
-            font-weight:lighter; */
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #d9534f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #c9302c;
-        }
-        /* style for content */
-        #greeting{
-            font-size: xx-large;
-            color: #c9302c;
-            text-shadow: #ff7f7f;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Teacher’s Day 💙</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #e6f0fa;
+      color: #1a1a2e;
+      text-align: center;
+    }
+
+    header {
+      background: #1e3a8a;
+      color: #fff;
+      padding: 40px 20px;
+      font-size: 2em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    header span {
+      color: #60a5fa;
+    }
+
+    .chalkboard {
+      background: #1e40af;
+      color: #e0f2fe;
+      padding: 40px;
+      margin: 30px auto;
+      width: 80%;
+      border: 8px solid #1e3a8a;
+      border-radius: 15px;
+      font-size: 1.4em;
+      font-family: 'Courier New', monospace;
+      box-shadow: inset 0 0 15px rgba(255,255,255,0.1);
+    }
+
+    .gallery {
+      margin: 40px auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      border: 4px solid #60a5fa;
+    }
+
+    .love-message {
+      margin: 40px;
+      font-size: 1.3em;
+      background: #dbeafe;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background: #1e3a8a;
+      color: #fff;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 1em;
+    }
+
+    .heart {
+      font-size: 2em;
+      color: #3b82f6;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+
+    /* Surprise Button */
+    .surprise-btn {
+      background: #3b82f6;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    .surprise-btn:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+
+    /* Hidden Surprise */
+    .surprise {
+      display: none;
+      margin: 30px auto;
+      width: 80%;
+      background: #eff6ff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      font-size: 1.3em;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+      max-width: 800px;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border: 3px solid #3b82f6;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h2 id="greeting">Happy Hearts Day</h2>
-        <div class="envelope" id="envelope">
-            <div class="flap" id="flap"></div>
-            <div class="card" id="card">
-                <p><strong><class="max">Dear Mila
-                    <p> 
-                        From the moment I met you, I knew you were the one. With you, even the darkest days feel bright. No storm, no doubt, no distance could ever change what we have.  
-                        We may disagree at times, but I wouldn’t trade a single moment. Through it all, our love stands strong.  
-                        Life is uncertain, but with you, I fear nothing. You are my heart, my home, my everything.  
-                        <br><br>
-                        Forever yours, 
-                        Zinjie Raliuga
-                    </p>
-                </strong></p>
-            </div>
-        </div>
-        <button id="toggleEnvelope">Click Here</button>
-    </div>
-    <audio id="background-music" loop>
-        <source src="audio/Kodaline - The One.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <script>
-        let isOpen = false;
-        let isPlaying = false;
-        let audio = document.getElementById("background-music");
-        let flap = document.getElementById("flap");
-        let card = document.getElementById("card");
-        let button = document.getElementById("toggleEnvelope");
+  <header>
+    Happy Teacher’s Day <span>Mahal 💙</span>
+  </header>
 
-        button.addEventListener("click", function () {
-            if (!isOpen) {
-                flap.style.transform = "rotateX(180deg)";
-                card.style.transform = "translateY(-20%)";
-                button.textContent = "Close";
-                if (!isPlaying) {
-                    audio.play();
-                    isPlaying = true;
-                }
-            } else {
-                flap.style.transform = "rotateX(0deg)";
-                card.style.transform = "translateY(100%)";
-                button.textContent = "Click Here";
-                audio.pause();
-                audio.currentTime = 0;
-                isPlaying = false;
-            }
-            isOpen = !isOpen;
-        });
-    </script>
+  <div class="chalkboard">
+    <p>Hi Bespren Max,</p>
+    <p>You are not just a wonderful teacher, but also the most amazing person in my life.</p>
+    <p>Thank you for inspiring your students and for inspiring me every single day. 💕</p>
+    <p>- Love, Zinjie</p>
+  </div>
+
+  <div class="gallery">
+    <img src="./image/1.jpg" alt="Her Smile">
+    <img src="./image/2.jpg" alt="Both of Us">
+    <img src="./image/3.jpg" alt="Her Happy Moment">
+  </div>
+
+  <div class="love-message">
+    “A great teacher takes a hand, opens a mind, and touches a heart.  
+    You’ve touched mine forever. 💙”
+  </div>
+
+  <!-- Surprise Button -->
+  <button class="surprise-btn" onclick="showSurprise()">Click for a Surprise 🎁</button>
+
+  <!-- Hidden Surprise -->
+  <div id="surprise" class="surprise">
+    💌 Hi Mahal,  
+    Every day with you feels like the best lesson of my life.  
+    You’ve taught me patience, kindness, and love in ways no classroom ever could.  
+    Forever proud of you — my teacher, my love, my inspiration. 💙  
+    <br><br>
+    <strong>Happy Teacher’s Day, Mahal! 🌹</strong>
+
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+      <img class="slides" src="./image/4.jpg" alt="Memory 1">
+      <img class="slides" src="./image/5.jpg" alt="Memory 2">
+      <img class="slides" src="./image/6.jpg" alt="Memory 3">
+      <img class="slides" src="./image/7.jpg" alt="Memory 4">
+      <img class="slides" src="./image/8.jpg" alt="Memory 5">
+      <img class="slides" src="./image/9.jpg" alt="Memory 6">
+      <img class="slides" src="./image/10.jpg" alt="Memory 7">
+      <img class="slides" src="./image/11.jpg" alt="Memory 8">
+    </div>
+  </div>
+
+  <footer>
+    With all my love <span class="heart">♥</span> Ian
+  </footer>
+
+  <script>
+    function showSurprise() {
+      document.getElementById("surprise").style.display = "block";
+      showSlides();
+    }
+
+    // Slideshow Logic
+    let slideIndex = 0;
+    function showSlides() {
+      let slides = document.getElementsByClassName("slides");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 2500); // Change every 2.5s
+    }
+  </script>
 </body>
 </html>
